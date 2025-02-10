@@ -4,19 +4,19 @@ This is my own attempt at creating a good and solid specification for [Romantic 
 
 ## Definition
 
-Romantic Versioning (or RomVer) is inspired by [SemVer](https://semver.org/), but is made to better fit the way that humans naturally percieve versioning semantics and changes. In short, RemVer is defined as `vHUMAN.MAJOR.MINOR`, where HUMAN is incremented when there is a large conceptual change, MAJOR is incremented when there are breaking changes, and MINOR is incremented when non-breaking changes are made.
+Romantic Versioning (or RomVer) is inspired by [SemVer](https://semver.org/), but is meant to better fit the way that humans naturally percieve version changes. In short, RemVer is defined as `vHUMAN.MAJOR.MINOR`, where HUMAN is incremented when there is a large conceptual change, MAJOR is incremented when there are breaking changes, and MINOR is incremented when non-breaking changes are made.
 
 <br>
 
 ## Why was this made?
 
-This was made because of the confusion SemVer often creates regarding MAJOR changes. When a project releases a v2.0, people don't automatically think of it as a simple breaking change as they should, they think of it as being an extremely big deal. And conversely, when a project released a v54.0, people don't automatically think of it as a simple breaking change as they should, they think of it as another small tedious step that isn't noteworthy.
+This was made to fix the confusion that SemVer often creates regarding MAJOR changes. When a project releases a v2.0, people don't automatically think of it as a simple breaking change as they should, they think of it as being an extremely big deal. And conversely, when a project released a v54.0, people don't automatically think of it as a simple breaking change as they should, they think of it as another small tedious step that isn't noteworthy.
 
 <br>
 
 ## Why should this be used?
 
-- 1: It is very intuitive for everyone involved
+- 1: It is very intuitive for everyone involved (users, maintainers, etc)
 - 2: It is compatible with systems that expect SemVer
 - 3: It is possibly the least likely format to cause confusion and wrongful assumptions
 
