@@ -1,4 +1,4 @@
-This is my own attempt at creating a solid specification for [Romantic Versioning](https://github.com/romversioning/romver).
+This is my own attempt at creating a good and solid specification for [Romantic Versioning](https://github.com/romversioning/romver).
 
 
 
@@ -17,7 +17,7 @@ This was made because of the confusion SemVer often creates regarding MAJOR chan
 ## Why should this be used?
 
 - 1: It is very intuitive for everyone involved
-- 2: It is compatible with systems that expect SemVer (expect for the extended specification)
+- 2: It is compatible with systems that expect SemVer
 - 3: It is possibly the least likely format to cause confusion and wrongful assumptions
 
 <br>
@@ -32,34 +32,33 @@ This was made because of the confusion SemVer often creates regarding MAJOR chan
 
 2: &nbsp; The 'RomVer Format' is defined as "vHUMAN.MAJOR.MINOR", where "HUMAN", "MAJOR", and "MINOR" are each placeholders for positive integers.
 
-3: &nbsp; A 'Version' is defined as an ASCII string that follows the RomVer Format, even if the leading "v" is omitted.
+3: &nbsp; If applicable, the RomVer Format must be extended in the following way(s):
 
-4: &nbsp; If a 'Project' wishes to follow the RomVer standard, it must follow every following rule.
+&nbsp; &nbsp; &nbsp; 3.1: &nbsp; If a release is a preview for a 'Planned Future Release', its Version must be the expected Version of the Planned Future Release concatenated with "-pre" and a number which is incremented for each preview release for the Planned Future Release and starts at 1.
 
-5: &nbsp; Each release of the Project must have exactly one Version attached.
+4: &nbsp; A 'Version' is defined as an ASCII string that follows the RomVer Format, even if the leading "v" is omitted.
 
-6: &nbsp; The contents (counted recursively) of each release of the Project must remain strictly unchanged in every possible manner once released, as much as relavent systems will allow. If the contents of a release require change, the change must be issued as a new release.
+5: &nbsp; If a 'Project' wishes to follow the RomVer standard, it must follow every following rule.
 
-7: &nbsp; The Version for the first release of the Project must be "v0.1.0" if the project is considered unfit for stable use, or "v1.0.0" if it is considered fit for stable use.
+6: &nbsp; Each release of the Project must have exactly one Version attached.
 
-8: &nbsp; Each Version of each release (or the New Release) of the Project must be based off the Version of whichever release the New Release was based on (or the Old Release), and must differ according to these rules:
+7: &nbsp; The contents (counted recursively) of each release of the Project must remain strictly unchanged in every possible manner once released, as much as relevant systems will allow. If the contents of a release require change, the change must be issued as a new release.
 
-&nbsp; &nbsp; 8.1: &nbsp; If the New Release is considered significantly different in a conceptual sense compared to the Old Release, or if the New Release is considered fit for stable use and the Old Release is not, the HUMAN segment of the Version must be incremented and the MAJOR and MINOR segments must be reset to 0.
+8: &nbsp; The Version for the first release of the Project must be "v0.1.0" if the project is considered unfit for stable use, or "v1.0.0" if it is considered fit for stable use.
 
-&nbsp; &nbsp; 8.2: &nbsp; Otherwise, if users might encounter breaking changes compared to the Old Release, the MAJOR segment of the Version must be incremented and the MINOR segment must be reset to 0, but the HUMAN segment must stay the same.
+9: &nbsp; Each Version of each release (or the New Release) of the Project must be based off the Version of whichever release the New Release was based on (or the Old Release), and must differ according to these rules:
 
-&nbsp; &nbsp; 8.3: &nbsp; Otherwise, the MINOR segment must be incremented, but the HUMAN and MAJOR segments must stay the same.
+&nbsp; &nbsp; &nbsp; 9.1: &nbsp; If the New Release is considered significantly different in a conceptual sense compared to the Old Release, or if the New Release is considered fit for stable use and the Old Release is not, the HUMAN segment of the Version must be incremented and the MAJOR and MINOR segments must be reset to 0.
 
-<br>
+&nbsp; &nbsp; &nbsp; 9.2: &nbsp; Otherwise, if users might encounter breaking changes compared to the Old Release, the MAJOR segment of the Version must be incremented and the MINOR segment must be reset to 0, but the HUMAN segment must stay the same.
 
-## Specification Extensions
+&nbsp; &nbsp; &nbsp; 9.3: &nbsp; Otherwise, the MINOR segment must be incremented, but the HUMAN and MAJOR segments must stay the same.
 
-<br>
-
-9: &nbsp; The RomVer Format may be extended in the following way(s):
-
-&nbsp; &nbsp; 9.1: &nbsp; If a release is a preview for a 'Planned Future Release', its Version must be the expected Version of the Planned Future Release concatenated with "-pre" and a number which is incremented for each preview release for the Planned Future Release and starts at 1.
+10: &nbsp; A Version (VA) is considered numerically greater than another (VB) if the HUMAN segment of VA is greater than VB's, or if the HUMAN segments are the same then the MAJOR segments are compared, or if the MAJOR segments are the same then the MINOR segments are compared, or if the MINOR segments are the same then the pre-release segments (if available, else "-pre0") are compared, or if the pre-release segments are the same then VA is equal to VB.
 
 <br>
 
-This document is inspired by and adapted from [the official specification](https://github.com/romversioning/romver)
+## Notes
+
+- Concepts like release alphas and betas are not recognized by this format
+- There are many times when you can and should have releases that do not strictly increase the version number compared to the last release (such as fixes for versions of the project which are older but still supported)
