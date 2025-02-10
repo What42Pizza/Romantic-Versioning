@@ -36,15 +36,15 @@ This was made to fix the confusion that SemVer often creates regarding MAJOR cha
 <br>
 <br>
 
-## Formal specification v0.1.0:
+## Formal specification v0.1.1:
 
 <br>
 
-1: &nbsp; The 'RomVer Format' is defined as "vHUMAN.MAJOR.MINOR", where "HUMAN", "MAJOR", and "MINOR" are each placeholders for positive integers.
+1: &nbsp; The 'RomVer Format' is defined as "vHUMAN.MAJOR.MINOR\[-lts]\[-preX]", where "HUMAN", "MAJOR", and "MINOR" are each placeholders for positive integers, "\[-lts]" (without the brackets) is an optional segment for long-term support, and "\[-preX]" (without the brackets) is an optional segment for pre-release versions, where X is a placeholder for a positive integer.
 
 2: &nbsp; A 'Version' is defined as an ASCII string that follows the RomVer Format, even if the leading "v" is omitted.
 
-3: &nbsp; If a 'Project' wishes to follow the RomVer standard, it must follow every following rule.
+3: &nbsp; If a 'Project' wishes to follow the RomVer standard, it must follow every following rule:
 
 4: &nbsp; Each release of the Project must have exactly one Version attached and must have all its notable changes listed in a changelog.
 
@@ -66,9 +66,9 @@ This was made to fix the confusion that SemVer often creates regarding MAJOR cha
 
 &nbsp; &nbsp; &nbsp; 8.2: &nbsp; If a release is a preview for a 'Planned Future Release', its Version must be the expected Version of the Planned Future Release concatenated with "-pre" and a number which starts at 1 and is incremented for each preview release for the Planned Future Release.
 
-9: &nbsp; A Version (VA) is considered numerically greater than another (VB) if the HUMAN segment of VA is greater than VB's, or if the HUMAN segments are the same then the MAJOR segments are compared, or if the MAJOR segments are the same then the MINOR segments are compared, or if the MINOR segments are the same then the pre-release segments (if available, else "-pre0") are compared, or if the pre-release segments are the same then VA is equal to VB.
+9: &nbsp; Precedence between two Versions is determined by comparing the HUMAN segments, or if the HUMAN segments are equal then the MAJOR segments are compared, or if the MAJOR segments are equal then the MINOR segments are compared, or if the MINOR segments are equal the the pre-release segments are compared, with no pre-release taking precedence over all pre-release numbers, or if the pre-release segments are equal then the versions are the same. The presence (or lack thereof) of an LTS segment does not affect precedence.
 
-10: &nbsp; If a Version has to be converted to just 3 positive integers for use in existing systems, the first component must be the HUMAN segment plus 1000 if it is LTS plus the pre-release segment (or 0) times 10,000, and the second and third segments must be the MAJOR and MINOR segments respectfully.
+10: &nbsp; If a Version has to be converted to just 3 positive integers for use in existing systems, the first component must be the HUMAN segment plus 1000 if it is LTS plus the pre-release segment (or 0 if not available) times 10,000, and the second and third segments must be the MAJOR and MINOR segments respectfully.
 
 <br>
 
@@ -77,3 +77,4 @@ This was made to fix the confusion that SemVer often creates regarding MAJOR cha
 - Concepts like release alphas and betas are not recognized by this format
 - There are many times when you can and should have releases that do not strictly increase the version number compared to the latest release (such as fixes for versions of the project which are older but still supported)
 - Additional data like build metadata, release date, etc. should not be included in the version
+- This repository has been dedicated to the public domain with the [CC0 license](LICENSE)
