@@ -1,26 +1,28 @@
-Romantic Versioning Specification v0.1.1
+Romantic Versioning Specification v1.0.0
 
-1: The 'RomVer Format' is defined as "vHUMAN.MAJOR.MINOR\[-lts]\[-preX]", where "HUMAN", "MAJOR", and "MINOR" are each placeholders for positive integers, "\[-lts]" (without the brackets) is an optional segment for long-term support, and "\[-preX]" (without the brackets) is an optional segment for pre-release versions, where X is a placeholder for a positive integer.
+1: The 'RomVer Format' is defined as "vHUMAN.MAJOR.MINOR\[-lts]\[-preX]", where "HUMAN", "MAJOR", and "MINOR" are each placeholders for positive integers, "\[-lts]" (without the brackets) is an optional purely aesthetic segment for long-term support, and "\[-preX]" (without the brackets) is an optional segment for pre-release versions, where X is a placeholder for a positive integer.
 
 2: A 'Version' is defined as an ASCII string that follows the RomVer Format, even if the leading "v" is omitted.
 
 3: If a 'Project' wishes to follow the RomVer standard, it must follow every following rule:
 
-4: Each release of the Project must have exactly one Version attached and must have all its notable changes listed in a changelog.
+4: Each release of the Project must have exactly one Version attached, and that Version must never change for said release.
 
-5: The contents (counted recursively) of each release of the Project must remain strictly unchanged in every possible manner once released, as much as relevant systems will allow. If the contents of a release require change, the change must be issued as a new release.
+5: Each release must have all its notable changes listed in a changelog, and if the release has a public api, said api must be clearly and comprehensively documented.
 
-6: The Version for the first release of the Project must be "v0.1.0" if the project is considered unfit for stable use, or "v1.0.0" if it is considered fit for stable use.
+6: The contents (counted recursively) of each release of the Project must remain strictly unchanged in every possible manner once released, as much as relevant systems will allow. If the contents of a release require change, the change must be issued as a new release.
 
-7: Each Version of each release (or the New Release) of the Project must be based off the Version of whichever release the New Release was based on (or the Old Release), and must differ according to these rules:
-  7.1: If the New Release is considered significantly different in a conceptual sense compared to the Old Release, or if the New Release is considered fit for stable use and the Old Release is not, the HUMAN segment of the Version must be incremented and the MAJOR and MINOR segments must be reset to 0.
-  7.2: Otherwise, if users might encounter breaking changes compared to the Old Release, the MAJOR segment of the Version must be incremented and the MINOR segment must be reset to 0, but the HUMAN segment must stay the same.
-  7.3: Otherwise, the MINOR segment must be incremented, but the HUMAN and MAJOR segments must stay the same.
+7: The Version for the first release of the Project must be "v0.1.0" if the project is considered unfit for stable use, or "v1.0.0" if it is considered fit for stable use.
 
-8: If applicable, the RomVer Format must be extended in the following ways:
-  8.1: If a release is meant for long-term support (or LTS), its Version must be concatenated with "-lts".
-  8.2: If a release is a preview for a 'Planned Future Release', its Version must be the expected Version of the Planned Future Release concatenated with "-pre" and a number which starts at 1 and is incremented for each preview release for the Planned Future Release.
+8: Each Version of each release (or the New Release) of the Project must be based off the Version of whichever release the New Release was based on (or the Old Release), and must differ according to these rules:
+  8.1: If the New Release is to be considered as a separate project compared to the Old Release, or if the New Release is considered fit for stable use and the Old Release is not, the HUMAN segment of the Version must be incremented and the MAJOR and MINOR segments must be reset to 0.
+  8.2: Otherwise, if users might encounter breaking changes compared to the Old Release, the MAJOR segment of the Version must be incremented and the MINOR segment must be reset to 0, but the HUMAN segment must stay the same.
+  8.3: Otherwise, the MINOR segment must be incremented, but the HUMAN and MAJOR segments must stay the same.
 
-9: Precedence between two Versions is determined by comparing the HUMAN segments, or if the HUMAN segments are equal then the MAJOR segments are compared, or if the MAJOR segments are equal then the MINOR segments are compared, or if the MINOR segments are equal the the pre-release segments are compared, with no pre-release taking precedence over all pre-release numbers, or if the pre-release segments are equal then the versions are the same. The presence (or lack thereof) of an LTS segment does not affect precedence.
+9: If applicable, the RomVer Format must be extended in the following ways:
+  9.1: If a release is meant for long-term support (or LTS), its Version must be concatenated with "-lts".
+  9.2: If a release is a preview for a 'Planned Future Release', its Version must be the expected Version of the Planned Future Release concatenated with "-pre" and a number which starts at 1 and is incremented for each preview release for the Planned Future Release.
 
-10: If a Version has to be converted to just 3 positive integers for use in existing systems, the first component must be the HUMAN segment plus 1000 if it is LTS plus the pre-release segment (or 0 if not available) times 10,000, and the second and third segments must be the MAJOR and MINOR segments respectfully.
+10: Ordering between two Versions is determined by comparing the HUMAN segments if they differ. Otherwise, the MAJOR segments are compared if they differ. Otherwise, the MINOR segments are compared if they differ. Otherwise, the pre-release segments are compared if they differ, with no pre-release segment being the greatest. Otherwise, the versions are equivalent. The presence (or lack thereof) of an LTS segment does not affect ordering.
+
+11: If a Version has to be converted to just 3 positive integers for use in existing systems, the first component must be the HUMAN segment plus 1000 if it is LTS plus the pre-release segment (or 0 if not available) times 10,000, and the second and third segments must be the MAJOR and MINOR segments respectively. For example, "v1.2.3" would be "1,2,3", "v2.0.0-pre2" would be "20002,0,0", "v1.5.2-lts" would be "1001,5,2", and "v1.5.2-lts-pre1" would be "11001,5,2".
