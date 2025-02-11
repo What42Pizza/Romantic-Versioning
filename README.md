@@ -12,7 +12,7 @@ Romantic Versioning (or RomVer) is inspired by [SemVer](https://semver.org/), bu
 
 In short, RomVer is defined as `vHUMAN.MAJOR.MINOR[-lts][-preX]`, where:
 
-- `HUMAN` is incremented when there is a large conceptual change
+- `HUMAN` is incremented when there is a large conceptual change, essentially creating a new, separate project
 - `MAJOR` is incremented when there are breaking changes
 - `MINOR` is incremented when there are non-breaking changes
 - `[-lts]` is an optional purely aesthetic addon if the release is meant for long-term support
