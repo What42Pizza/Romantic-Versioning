@@ -2,6 +2,14 @@
 
 <br>
 
+### v1.0.1 &nbsp; 25/02/10
+
+- Combined details 8 and 9
+- Improved wording of detail 10 (previously 11)
+- Removed more formatting from raw specification
+
+<br>
+
 ### v1.0.0 &nbsp; 25/02/10
 
 - Inserted detail 5 for clarity about what action is suggested surrounding the version (worded as 'must')
