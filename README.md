@@ -1,6 +1,6 @@
 # Romantic Versioning
 
-Romantic Versioning (or RomVer) is inspired by [SemVer](https://semver.org/), but is meant to better fit the way that humans naturally perceive version changes.
+Romantic Versioning (or RomVer) is inspired by [SemVer](https://semver.org/), but is meant to better fit the way that humans perceive version changes.
 
 <br>
 
@@ -18,15 +18,28 @@ In short, RomVer is defined as `vPROJECT.MAJOR.MINOR[-lts][-preX]`, where:
 
 ## Why was this made?
 
-This was made to fix the confusion that SemVer often creates regarding MAJOR changes. When a project releases a v2.0, people don't automatically think of it as a simple breaking change as they should, they think of it as being an extremely big deal. And conversely, when a project releases a v54.0, people don't automatically think of it as a simple breaking change as they should, they think of it as another small tedious step that isn't noteworthy.
+This was made to fix the confusion that SemVer often creates regarding MAJOR changes. When a project releases a v2.0, people don't automatically think of it as a simple breaking change as they should, they think of it as being an extremely big deal. And conversely, when a project releases a v54.0, people don't automatically think of it as a simple breaking change as they should, they think of it as another small and tedious step that isn't noteworthy.
+
+For whatever reason, humans seem to naturally put a lot of personal attachment in the first number of a version, and this standard attempts to work with that fact instead of overriding it. 
 
 <br>
 
 ## Why should this be used?
 
-- 1: It is very intuitive for everyone involved (users, maintainers, etc)
-- 2: It is compatible with systems that expect SemVer
-- 3: It is possibly the least likely format to cause confusion and wrongful assumptions
+#### - &nbsp; The specification is barely even needed, it basically just states what people already expect when looking at the three numbers.
+
+#### - &nbsp; It conveys more information
+
+- The MINOR and PATCH segments in SemVer are both backwards-compatible, so they're identical when it comes to whether or not users should update. Here, they're combined into a single segment.
+- The PROJECT and MAJOR segments denote differing levels of breaking changes, with MAJOR increments likely being easy to update to and PROJECT increments likely being not easy to update to.
+
+#### - &nbsp; It is possibly the least likely format to cause confusion and wrongful assumptions, as it is only attempting to standardize human intuition.
+
+#### - &nbsp; It is compatible with systems that expect SemVer. This mainly uses three numerical segments, which is compatible with essentially everything that expects a version to be entered.
+
+#### - &nbsp; (Extra) It can be used for projects of all types, even for projects whose users may not be tech-savvy. This standard is extremely intuitive, so users don't have to read a technical specification meant for developers.
+
+#### - &nbsp; (Extra) You don't have to do something crazy like "Project v2 v0.1.0" if you want to radically transform your project.
 
 <br>
 <br>
