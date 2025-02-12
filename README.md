@@ -1,10 +1,6 @@
-This is my own attempt at creating a good and solid specification for [Romantic Versioning](https://github.com/romversioning/romver).
-
-
-
 # Romantic Versioning
 
-Romantic Versioning (or RomVer) is inspired by [SemVer](https://semver.org/), but is meant to better fit the way that humans naturally perceive version changes
+Romantic Versioning (or RomVer) is inspired by [SemVer](https://semver.org/), but is meant to better fit the way that humans naturally perceive version changes.
 
 <br>
 
@@ -75,6 +71,11 @@ This was made to fix the confusion that SemVer often creates regarding MAJOR cha
 ## Notes
 
 - The definition of "considered a separate project" must be subjectively interpreted by each project maintainer, but that is the only area where subjectivity is allowed.
+- The RomVer spec expects each release to consist of at least:
+- - A name, version, and description
+- - One or more sets of contents
+- - An associated changelog entry
+- - Its own clear and comprehensive documentation
 - There are many times when you can and should have releases that do not strictly increase the version number compared to the latest release (such as fixes for versions of the project which are older but still supported).
 - Concepts like release alphas and betas are not recognized by this format.
 - All releases, no matter how small, must at least increment the MINOR segment or the pre-release segment.
