@@ -2,6 +2,12 @@
 
 <br>
 
+### v1.0.2 &nbsp; 25/02/11
+
+- Replaced wording "human segment" with "project segment"
+
+<br>
+
 ### v1.0.1 &nbsp; 25/02/10
 
 - Combined details 8 and 9

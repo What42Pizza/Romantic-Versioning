@@ -10,9 +10,9 @@ Romantic Versioning (or RomVer) is inspired by [SemVer](https://semver.org/), bu
 
 ## Definition
 
-In short, RomVer is defined as `vHUMAN.MAJOR.MINOR[-lts][-preX]`, where:
+In short, RomVer is defined as `vPROJECT.MAJOR.MINOR[-lts][-preX]`, where:
 
-- `HUMAN` is incremented when there is a large conceptual change, essentially creating a new, separate project
+- `PROJECT` is incremented when there is a large conceptual change, essentially creating a new, separate project
 - `MAJOR` is incremented when there are breaking changes
 - `MINOR` is incremented when there are non-breaking changes
 - `[-lts]` is an optional purely aesthetic addon if the release is meant for long-term support
@@ -36,11 +36,11 @@ This was made to fix the confusion that SemVer often creates regarding MAJOR cha
 <br>
 <br>
 
-## RomVer Specification v1.0.1:
+## RomVer Specification v1.0.2:
 
 <br>
 
-1: &nbsp; The 'RomVer Format' is defined as "vHUMAN.MAJOR.MINOR\[-lts]\[-preX]", where "HUMAN", "MAJOR", and "MINOR" are each placeholders for positive integers, "\[-lts]" (without the brackets) is an optional purely aesthetic segment for long-term support, and "\[-preX]" (without the brackets) is an optional segment for pre-release versions, where X is a placeholder for a positive integer.
+1: &nbsp; The 'RomVer Format' is defined as "vPROJECT.MAJOR.MINOR\[-lts]\[-preX]", where "PROJECT", "MAJOR", and "MINOR" are each placeholders for positive integers, "\[-lts]" (without the brackets) is an optional purely aesthetic segment for long-term support, and "\[-preX]" (without the brackets) is an optional segment for pre-release versions, where X is a placeholder for a positive integer.
 
 2: &nbsp; A 'Version' is defined as an ASCII string that follows the RomVer Format, even if the leading "v" is omitted.
 
@@ -58,17 +58,17 @@ This was made to fix the confusion that SemVer often creates regarding MAJOR cha
 
 &nbsp; &nbsp; &nbsp; 8.1: &nbsp; If the New Release is a preview for a 'Planned Future Release', the Version must be the expected Version of the Planned Future Release concatenated with "-pre" and a number which starts at 1 and is incremented for each preview release for the Planned Future Release.
 
-&nbsp; &nbsp; &nbsp; 8.2: &nbsp; Otherwise, if the New Release is to be considered as a separate project compared to the Old Release, or if the New Release is considered fit for stable use and the Old Release is not, the HUMAN segment of the Version must be incremented and the MAJOR and MINOR segments must be reset to 0.
+&nbsp; &nbsp; &nbsp; 8.2: &nbsp; Otherwise, if the New Release is to be considered as a separate project compared to the Old Release, or if the New Release is considered fit for stable use and the Old Release is not, the PROJECT segment of the Version must be incremented and the MAJOR and MINOR segments must be reset to 0.
 
-&nbsp; &nbsp; &nbsp; 8.3: &nbsp; Otherwise, if users might encounter breaking changes compared to the Old Release, the MAJOR segment of the Version must be incremented and the MINOR segment must be reset to 0, but the HUMAN segment must stay the same.
+&nbsp; &nbsp; &nbsp; 8.3: &nbsp; Otherwise, if users might encounter breaking changes compared to the Old Release, the MAJOR segment of the Version must be incremented and the MINOR segment must be reset to 0, but the PROJECT segment must stay the same.
 
-&nbsp; &nbsp; &nbsp; 8.4: &nbsp; Otherwise, the MINOR segment must be incremented, but the HUMAN and MAJOR segments must stay the same.
+&nbsp; &nbsp; &nbsp; 8.4: &nbsp; Otherwise, the MINOR segment must be incremented, but the PROJECT and MAJOR segments must stay the same.
 
 &nbsp; &nbsp; &nbsp; 8.5: &nbsp; Additionally, if the New Release is meant for long-term support (or LTS), the Version must include "-lts" directly after the MINOR segment.
 
-9: &nbsp; Ordering between two Versions is determined by comparing the HUMAN segments if they differ. Otherwise, the MAJOR segments are compared if they differ. Otherwise, the MINOR segments are compared if they differ. Otherwise, the pre-release segments are compared if they differ, with no pre-release segment being the greatest. Otherwise, the versions are equivalent. The presence (or lack thereof) of an LTS segment does not affect ordering.
+9: &nbsp; Ordering between two Versions is determined by comparing the PROJECT segments if they differ. Otherwise, the MAJOR segments are compared if they differ. Otherwise, the MINOR segments are compared if they differ. Otherwise, the pre-release segments are compared if they differ, with no pre-release segment being the greatest. Otherwise, the versions are equivalent. The presence (or lack thereof) of an LTS segment does not affect ordering.
 
-10: &nbsp; If a Version has to be converted to just 3 positive integers for use in existing systems, the first component must be calculated as `(HUMAN + (1000 if LTS) + (10,000 * pre-release number (or 0)))`. The second and third components must be the MAJOR and MINOR segments, respectively. For example, "v1.2.3" would be "1,2,3", "v2.0.0-pre2" would be "20002,0,0", "v1.5.2-lts" would be "1001,5,2", and "v1.5.2-lts-pre1" would be "11001,5,2".
+10: &nbsp; If a Version has to be converted to just 3 positive integers for use in existing systems, the first component must be calculated as `(PROJECT + (1000 if LTS) + (10,000 * pre-release number (or 0)))`. The second and third components must be the MAJOR and MINOR segments, respectively. For example, "v1.2.3" would be "1,2,3", "v2.0.0-pre2" would be "20002,0,0", "v1.5.2-lts" would be "1001,5,2", and "v1.5.2-lts-pre1" would be "11001,5,2".
 
 <br>
 
