@@ -1,6 +1,6 @@
 # Romantic Versioning
 
-Romantic Versioning (or RomVer) is inspired by [SemVer](https://semver.org/), but is meant to better fit the way that humans perceive version changes.
+Romantic Versioning (or RomVer) is inspired by [SemVer](https://semver.org/), but is meant to better fit the way that humans perceive version changes. You can see the 'official' RomVer repository [here](https://github.com/romversioning/romver).
 
 <br>
 
@@ -28,7 +28,7 @@ For whatever reason, humans seem to naturally put a lot of personal attachment i
 
 #### - &nbsp; The specification is barely even needed, it basically just states what people already expect when looking at the three numbers.
 
-#### - &nbsp; It conveys more information
+#### - &nbsp; It conveys more information to users
 
 - The MINOR and PATCH segments in SemVer are both backwards-compatible, so they're identical when it comes to whether or not users should update. Here, they're combined into a single segment.
 - The PROJECT and MAJOR segments denote differing levels of breaking changes, with MAJOR increments likely being easy to update to and PROJECT increments likely being not easy to update to.
@@ -85,7 +85,7 @@ For whatever reason, humans seem to naturally put a lot of personal attachment i
 
 - The definition of "considered a separate project" must be subjectively interpreted by each project maintainer, but that is the only area where subjectivity is allowed.
 - The RomVer spec expects each release to consist of at least:
-- - A name, version, and description
+- - A name, a version, and a description
 - - One or more sets of contents
 - - An associated changelog entry
 - - Its own clear and comprehensive documentation
