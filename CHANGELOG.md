@@ -2,7 +2,7 @@
 
 <br>
 
-### v1.1.0 &nbsp; (25/03/07)
+### v1.1.0 &nbsp; (25/03/08)
 
 - Added "\[.FIX]" and "\[+BUILD]" segments
 - Added Build Versions for variations of release contents
