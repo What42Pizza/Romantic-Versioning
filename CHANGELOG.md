@@ -2,6 +2,14 @@
 
 <br>
 
+### v1.1.0 &nbsp; (25/03/07)
+
+- Added "\[.FIX]" and "\[+BUILD]" segments
+- Added Build Versions for variations of release contents
+- Slightly improved wording and logic in many places
+
+<br>
+
 ### v1.0.2 &nbsp; (25/02/11)
 
 - Replaced wording "human segment" with "project segment"
